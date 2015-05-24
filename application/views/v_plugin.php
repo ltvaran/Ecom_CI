@@ -45,3 +45,6 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="../admin/dist/js/demo.js" type="text/javascript"></script>
+
+</body>
+</html>

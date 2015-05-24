@@ -13,18 +13,19 @@ class VerifyLogin extends CI_Controller {
         //This method will have the credentials validation
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_database');
 
-        if($this->form_validation->run() == FALSE)
+        if($this->form_validation->run() == TRUE)
         {
-            //Field validation failed.  User redirected to login page
-            $this->load->view('v_login');
+            //$this->session->set_userdata($userdata);
+            //Go to private area
+            redirect('Admin', 'refresh');
         }
         else
         {
-            //Go to private area
-            redirect('Admin', 'refresh');
+            //Field validation failed.  User redirected to login page
+            $this->load->view('v_login');
         }
 
     }
@@ -39,16 +40,25 @@ class VerifyLogin extends CI_Controller {
 
         if($result)
         {
-            $sess_array = array();
             foreach($result as $row)
             {
                 $sess_array = array(
                     'id' => $row->id,
-                    'username' => $row->username
+                    'username' => $row->username,
+                    'fullname' => $row->fullname,
+                    'avatar' => $row->avatar
                 );
                 $this->session->set_userdata('logged_in', $sess_array);
             }
-            return TRUE;
+            if($row->type == 0)
+            {
+                return TRUE;
+            }
+            else
+            {
+                $this->form_validation->set_message('check_database','No authentication');
+                return FALSE;
+            }
         }
         else
         {
