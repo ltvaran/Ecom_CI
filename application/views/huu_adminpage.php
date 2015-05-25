@@ -19,8 +19,37 @@
 
     <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="../../js/jquery.confirm.min.js"></script>
     <script type="text/javascript" src="../../js/my_javascript.js"></script>
+
+
+    <script type="text/javascript">
+
+
+
+
+
+        var controller = 'huu_adminpage';
+        var base_url = '<?php echo site_url(); //you have to load the "url_helper" to use this function ?>';
+
+        function deleteAction(id){
+            $.ajax({
+                'url' : base_url + '/' + controller + '/deleteProduct',
+                'type' : 'POST', //the way you want to send data to your URL
+                'data' : {'id' : id},
+                'success' : function(data){ //probably this request will return anything, it'll be put in var "data"
+                    var container = $('#container'); //jquery selector (get element by id)
+                    if(data){
+                        container.html(data);
+                    }
+                }
+            });
+        }
+
+
+
+    </script>
+
 
 
 </head>
@@ -51,41 +80,40 @@
             </ul>
         </div>
     </nav>
-    <?php
 
-//    echo $products["ID"];
-    foreach ($products as $product)
-    {
-        echo $product["TENHANG"] . "<br/>";
-    }
-
-
-    ?>
 
     <table class="table table-striped">
         <caption>Striped Table Layout</caption>
         <thead>
         <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Pincode</th>
+            <th>Tên máy</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Tanmay</td>
-            <td>Bangalore</td>
-            <td>560001</td>
+        <?php
 
-            <td>
-                <button class="btn btn-warning" value="Edit">Edit</button>
-                &nbsp;
-                <button class="btn btn-danger" value="Delete">Delete</button>
-            </td>
 
-        </tr>
+        foreach ($products as $product) {
+            ?>
+            <tr>
+                <td><?php echo $product["TENHANG"]; ?></td>
+                <td><?php echo $product["SOLUONG"]; ?></td>
+                <td><?php echo $product["GIATIEN"]; ?></td>
 
+                <td>
+                    <button class="btn btn-warning " value="<?php echo $product["ID"]; ?>">Edit</button>
+                    &nbsp;
+                    <button class="btn btn-danger btDelete" id="xoa"  value="<?php echo $product["ID"]; ?>"   onclick="deleteAction(1);">Delete</button>
+                </td>
+
+
+            </tr>
+
+        <?php }
+        ?>
         </tbody>
     </table>
 

@@ -27,5 +27,17 @@ public function    __construct()
 
     }
 
+    public function deleteProduct($id)
+    {
+
+       $this->db->where("id",$id);
+        $this->db->delete("product");
+
+
+
+
+    }
+
+
 
 }
