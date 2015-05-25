@@ -26,7 +26,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-cubes"></i> <span>Sản phẩm</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -42,35 +42,22 @@
                     ?>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-share"></i> <span>Sản phẩm</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <?php
-                    foreach ($result_cate as $row)
-                    {
-                        echo "<li><a href='#'><i class='fa fa-circle-o'></i>", $row->CATENAME,"<i class="fa fa-angle-left pull-right"></i></a>";
+                        echo "<li><a href='#'><i class='fa fa-circle-o'></i>", $row->CATENAME,"</a>";
                             echo "<ul class='treeview-menu'>";
-                                
+                            foreach($result_cate as $row)
+                            {
+                                echo "<li><a href='#'><i class='fa fa-circle-o'></i>", $row->SUBNAME,"</a></li>";
+                            }
                             echo "</ul>";
                         echo "</li>";
-                    }
                     ?>
-                    <!--<li>
-                        <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                            <li>
-                                <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>-->
                     <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
                 </ul>
             </li>
