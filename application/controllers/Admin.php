@@ -28,6 +28,8 @@ class Admin extends CI_Controller {
                 echo '<script>alert("Không có danh mục sản phẩm");</script>';
             }
 
+            $data['nestedView']['maincontent'] = $session_data['subproductlist'];
+            //echo "<script>alert('",$maincontent,"')</script>";
             $this->load->view('header');
             $this->load->view('v_body', $data);//1st pass of nested data to main view
         }
@@ -43,11 +45,12 @@ class Admin extends CI_Controller {
         session_destroy();
         redirect('login', 'refresh');
     }
-
-
-    function refresh_contentwrapper()//working on refreshing nested view
+    function view_sanpham()//working on refreshing nested view
     {
-        $this->load->view('v_body', $data);//1st pass of nested data to main view
+        $session_data = $this->session->userdata('logged_in');
+        $session_data['subproductlist'] = $this->uri->segment(3);
+        $this->session->set_userdata('logged_in', $session_data);
+        redirect('Admin', 'refresh');
     }
 }
 

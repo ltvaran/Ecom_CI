@@ -53,7 +53,7 @@
                             echo "<ul class='treeview-menu'>";
                             foreach($result_cate as $row)
                             {
-                                echo "<li><a href='#'><i class='fa fa-circle-o'></i>", $row->SUBNAME,"</a></li>";
+                                echo "<li><a href='",base_url(),index_page(),"/admin/view_sanpham/",$row->ID,"'><i class='fa fa-circle-o'></i>", $row->SUBNAME,"</a></li>";
                             }
                             echo "</ul>";
                         echo "</li>";

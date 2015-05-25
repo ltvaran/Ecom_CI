@@ -9,7 +9,7 @@ Class Query_category extends CI_Model
 {
     function category()
     {
-        $this->db->select('*');
+        $this->db->select('subcategory.ID, subcategory.SUBNAME, category.CATENAME');
         $this->db->from('subcategory');
         $this->db->join('category', 'subcategory.CATE_ID = category.ID');
         $this->db->where('category.STATUS = 1');

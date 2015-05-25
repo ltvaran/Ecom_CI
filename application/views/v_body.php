@@ -25,11 +25,16 @@
         </section>
         <!-- Main content -->
         <section class=""content">
-
             <?php
-                $this->load->view('v_firstrow');
+                if(EMPTY($nestedView['maincontent']))//dashboard only
+                {
+                    $this->load->view('v_firstrow');
+                }
+                else//load in maincontent
+                {
+                    $this->load->view('v_producttable', $nestedView);
+                }
             ?>
-
         </section><!-- /.content -->
     </div><!-- ./content-wrapper -->
 <?php
