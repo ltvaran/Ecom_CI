@@ -28,4 +28,13 @@ class Huu_AdminPage extends CI_Controller
 
 
     }
+
+
+    public  function deleteProduct($id)
+    {
+
+
+        $this->Mproduct->deleteProduct();
+
+    }
 }

@@ -8,26 +8,33 @@
 
 $(document).ready(function () {
 
-    $("#jsGrid").jsGrid({
-        width: "100%",
-        height: "400px",
 
-        filtering: true,
-        editing: true,
-        sorting: true,
-        paging: true,
 
-        data: db.clients,
 
-        fields: [
-            { name: "Name", type: "text", width: 150 },
-            { name: "Age", type: "number", width: 50 },
-            { name: "Address", type: "text", width: 200 },
-            { name: "Country", type: "select", items: db.countries, valueField: "Id", textField: "Name" },
-            { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
-            { type: "control" }
-        ]
-    });
+
+    //phần confirm khi delete
+
+    //
+    //$("#xoa").confirm({
+    //    text: "Bạn có chắc muốn xóa chứ ?",
+    //    title: "Thông báo",
+    //    confirm: function(button) {
+    //        //delete();
+    //    },
+    //    cancel: function(button) {
+    //        // nothing to do
+    //    },
+    //    confirmButton: "Có",
+    //    cancelButton: "Không",
+    //    post: true,
+    //    confirmButtonClass: "btn-danger",
+    //    cancelButtonClass: "btn-default",
+    //    dialogClass: "modal-dialog modal-lg" // Bootstrap classes for large modal
+    //});
+    //
+
+
+
+
 });
-
 
