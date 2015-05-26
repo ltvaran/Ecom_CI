@@ -19,7 +19,7 @@ class Huu_AdminPage extends CI_Controller
     {
 
 
-  $this->load->model("Mproduct");
+        $this->load->model("Mproduct");
 
         $data["products"] = $this->Mproduct->getProducts();
 
@@ -30,11 +30,13 @@ class Huu_AdminPage extends CI_Controller
     }
 
 
-    public  function deleteProduct($id)
+    public function deleteProduct($id)
     {
 
-
-        $this->Mproduct->deleteProduct();
-
+        $this->load->model("Mproduct");
+        $this->Mproduct->deleteProduct($id);
+//refresh lai trang sau khi delete
+        $this->load->helper('url');
+        redirect('huu_adminpage/index', 'refresh');
     }
 }

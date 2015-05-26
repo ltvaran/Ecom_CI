@@ -35,6 +35,20 @@ $(document).ready(function () {
 
 
 
-
 });
 
+
+
+//function deleteAction(table, condition, id) {
+//    $.ajax({
+//            type: "GET",
+//            url: "<?php echo site_url(); ?>" + "index.php/huu_adminpage/deleteProduct/" + table + "/" + condition + "/" + id,
+////                    dataType: 'json',
+////                    data: {id: id},
+//            success: function () {
+//                $("#row-" + id).remove();
+//
+//            }
+//        }
+//    )
+//}

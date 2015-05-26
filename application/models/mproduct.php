@@ -1,28 +1,28 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: tranbaohuu
  * Date: 5/25/2015
  * Time: 12:27 AM
  */
-
 class Mproduct extends CI_Model
 {
-public function    __construct()
-{
-    parent::__construct();
+    public function    __construct()
+    {
+        parent::__construct();
 
-    $this->load->database();
+        $this->load->database();
 
 
-}
+    }
 
     public function getProducts()
     {
 
-      $query =  $this->db->get("product");
+        $query = $this->db->get("product");
 
-  return $query->result_array();
+        return $query->result_array();
 
 
     }
@@ -30,14 +30,11 @@ public function    __construct()
     public function deleteProduct($id)
     {
 
-       $this->db->where("id",$id);
+        $this->db->where("id", $id);
         $this->db->delete("product");
 
 
-
-
     }
-
 
 
 }

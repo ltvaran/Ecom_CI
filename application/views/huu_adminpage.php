@@ -23,34 +23,26 @@
     <script type="text/javascript" src="../../js/my_javascript.js"></script>
 
 
-    <script type="text/javascript">
+    <script>
 
-
-
-
-
-        var controller = 'huu_adminpage';
-        var base_url = '<?php echo site_url(); //you have to load the "url_helper" to use this function ?>';
-
-        function deleteAction(id){
-            $.ajax({
-                'url' : base_url + '/' + controller + '/deleteProduct',
-                'type' : 'POST', //the way you want to send data to your URL
-                'data' : {'id' : id},
-                'success' : function(data){ //probably this request will return anything, it'll be put in var "data"
-                    var container = $('#container'); //jquery selector (get element by id)
-                    if(data){
-                        container.html(data);
-                    }
-                }
-            });
-        }
-
+        //        var base_url = '<?php //echo site_url(); //you have to load the "url_helper" to use this function ?>//';
+        //
+        //        function deleteAction(table, condition, id) {
+        //            $.ajax({
+        //                    type: "GET",
+        //                    url: "<?php //echo base_url(); ?>//" + "index.php/huu_adminpage/deleteProduct/" + table + "/" + condition + "/" + id,
+        ////                    dataType: 'json',
+        ////                    data: {id: id},
+        //                    success: function () {
+        //                        $("#row-" + id).remove();
+        //
+        //                    }
+        //                }
+        //            )
+        //        }
 
 
     </script>
-
-
 
 </head>
 <body>
@@ -82,6 +74,54 @@
     </nav>
 
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:800px; ">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Thông tin
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-2">
+                            Tên sản phẩm
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            Mô tả
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        Save
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
     <table class="table table-striped">
         <caption>Striped Table Layout</caption>
         <thead>
@@ -98,15 +138,20 @@
 
         foreach ($products as $product) {
             ?>
-            <tr>
+            <tr id="row-<?php echo $product["ID"] ?>">
                 <td><?php echo $product["TENHANG"]; ?></td>
                 <td><?php echo $product["SOLUONG"]; ?></td>
                 <td><?php echo $product["GIATIEN"]; ?></td>
 
                 <td>
-                    <button class="btn btn-warning " value="<?php echo $product["ID"]; ?>">Edit</button>
+
+
+                    <a class="btn btn-warning" data-toggle="modal" data-target="#myModal">Edit</a>
                     &nbsp;
-                    <button class="btn btn-danger btDelete" id="xoa"  value="<?php echo $product["ID"]; ?>"   onclick="deleteAction(1);">Delete</button>
+
+                    <a class="btn btn-danger"
+                       href="<?php echo site_url(); ?>/huu_adminpage/deleteProduct/<?php echo $product["ID"]; ?>">Delete</a>
+
                 </td>
 
 
