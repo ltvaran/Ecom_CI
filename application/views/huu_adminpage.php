@@ -27,30 +27,40 @@
 <body>
 <div class="container-fluid">
 
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Admin Panel</a>
-            </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">iOS</a></li>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Báo cáo</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Danh mục
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Thêm</a></li>
-                            <li><a href="#">Sửa</a></li>
-                            <li><a href="#">Xóa</a></li>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Báo cáo</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Danh mục
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Thêm</a></li>
+                        <li><a href="#">Sửa</a></li>
+                        <li><a href="#">Xóa</a></li>
 
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <?php
+
+//    echo $products["ID"];
+    foreach ($products as $product)
+    {
+        echo $product["TENHANG"] . "<br/>";
+    }
+
+
+    ?>
 
     <table class="table table-striped">
         <caption>Striped Table Layout</caption>
@@ -67,25 +77,17 @@
             <td>Tanmay</td>
             <td>Bangalore</td>
             <td>560001</td>
-            <td><button class="btn btn-warning" value="Edit">Edit</button>&nbsp;<button class="btn btn-danger" value="Delete">Delete</button></td>
+
+            <td>
+                <button class="btn btn-warning" value="Edit">Edit</button>
+                &nbsp;
+                <button class="btn btn-danger" value="Delete">Delete</button>
+            </td>
 
         </tr>
-        <tr>
-            <td>Sachin</td>
-            <td>Mumbai</td>
-            <td>400003</td>
-            <td><button class="btn btn-warning" value="Edit">Edit</button>&nbsp;<button class="btn btn-danger" value="Delete">Delete</button></td>
-        </tr>
-        <tr>
-            <td>Uma</td>
-            <td>Pune</td>
-            <td>411027</td>
-            <td><button class="btn btn-warning" value="Edit">Edit</button>&nbsp;<button class="btn btn-danger" value="Delete">Delete</button></td>
 
-        </tr>
         </tbody>
     </table>
-
 
 
 </div>

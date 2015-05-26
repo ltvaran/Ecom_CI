@@ -27,8 +27,11 @@ class Admin extends CI_Controller {
             {
                 echo '<script>alert("Không có danh mục sản phẩm");</script>';
             }
+            if(isset($session_data['subproductlist']))
+            {
+                $data['nestedView']['maincontent'] = $session_data['subproductlist'];
+            }
 
-            $data['nestedView']['maincontent'] = $session_data['subproductlist'];
             //echo "<script>alert('",$maincontent,"')</script>";
             $this->load->view('header');
             $this->load->view('v_body', $data);//1st pass of nested data to main view
