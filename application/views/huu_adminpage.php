@@ -75,50 +75,70 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" style="width:800px; ">
-                <div class="modal-header">
-                    <button type="button" class="close"
-                            data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        Thông tin
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
+    <form method="post" action="<?php echo site_url(); ?>/huu_adminpage/editProduct">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width:800px; ">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Thông tin
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
 
-                        <div class="col-md-2">
-                            Tên sản phẩm
-                        </div>
-                        <div class="col-md-4">
-                            <input class="form-control">
-                        </div>
-                        <div class="col-md-2">
-                            Mô tả
-                        </div>
-                        <div class="col-md-4">
-                            <input class="form-control">
-                        </div>
+                            <div class="col-md-2">
+                                Tên sản phẩm
+                            </div>
+                            <div class="col-md-4">
+                                <input name="tensp" id="tbTenSanPham" class="form-control">
+                            </div>
+                            <div class="col-md-2">
+                                Mô tả
+                            </div>
+                            <div class="col-md-4">
+                                <input name="mota" id="tbMoTa" class="form-control">
+                            </div>
 
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                Giá
+                            </div>
+                            <div class="col-md-4">
+                                <input name="gia" id="tbGia" class="form-control">
+                            </div>
+
+
+
+                            <div class="col-md-2">
+                                Giá
+                            </div>
+                            <div class="col-md-4">
+                                <input name="id" id="tbGia" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary" name="id" value="">
+                            Save
+                        </button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                            data-dismiss="modal">Cancel
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                        Save
-                    </button>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
+    </form>
     <!-- /.modal -->
 
 
@@ -139,14 +159,15 @@
         foreach ($products as $product) {
             ?>
             <tr id="row-<?php echo $product["ID"] ?>">
-                <td><?php echo $product["TENHANG"]; ?></td>
-                <td><?php echo $product["SOLUONG"]; ?></td>
-                <td><?php echo $product["GIATIEN"]; ?></td>
+                <td id="cotID-<?php echo $product["ID"]; ?>" style="display: none;"><?php echo $product["ID"]; ?></td>
+                <td id="cotTenHang-<?php echo $product["ID"]; ?>"><?php echo $product["TENHANG"]; ?></td>
+                <td id="cotSoLuong-<?php echo $product["ID"]; ?>"><?php echo $product["SOLUONG"]; ?></td>
+                <td id="cotGiaTien-<?php echo $product["ID"]; ?>"><?php echo $product["GIATIEN"]; ?></td>
 
                 <td>
 
 
-                    <a class="btn btn-warning" data-toggle="modal" data-target="#myModal">Edit</a>
+                    <a class="btn btn-warning" id="btEdit-<td id="cotID-<?php echo $product["ID"]; ?>" data-toggle="modal" data-target="#myModal">Edit</a>
                     &nbsp;
 
                     <a class="btn btn-danger"

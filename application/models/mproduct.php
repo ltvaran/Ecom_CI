@@ -36,5 +36,14 @@ class Mproduct extends CI_Model
 
     }
 
+    public function editProduct($table, $condition, $info)
+    {
+
+        $this->db->where($condition);
+        $this->db->update($table, $info);
+
+
+    }
+
 
 }
