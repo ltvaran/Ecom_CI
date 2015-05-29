@@ -27,6 +27,18 @@ class Mproduct extends CI_Model
 
     }
 
+
+    public function getProductsPagination()
+    {
+
+        $query = $this->db->get("product");
+
+        return $query;
+
+
+    }
+
+
     public function deleteProduct($id)
     {
 

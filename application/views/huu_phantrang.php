@@ -49,7 +49,7 @@
 <div class="container-fluid">
 
     <?php
- ?>
+    ?>
 
 
     <nav class="navbar navbar-default" role="navigation">
@@ -179,7 +179,7 @@
         <?php
 
 
-        foreach ($products as $product) {
+        foreach ($products->result_array() as $product) {
             ?>
             <tr id="row-<?php echo $product["ID"] ?>">
                 <td id="cotID-<?php echo $product["ID"]; ?>" style="display: none;"><?php echo $product["ID"]; ?></td>
@@ -205,6 +205,7 @@
             </tr>
 
         <?php }
+        echo $this->pagination->create_links();
         ?>
         </tbody>
     </table>

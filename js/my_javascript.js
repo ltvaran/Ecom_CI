@@ -34,18 +34,27 @@ $(document).ready(function () {
     //
 
 
-$("#btEdit").click(function(){
+    $(".btn-edit").click(function () {
+         var id  = $(this).val();
 
 
+        var tenHang = $("#cotTenHang-" + id).text();
+        var soLuong = $("#cotSoLuong-" + id).text();
+        var giaTien = $("#cotGiaTien-" + id).text();
+        var moTa = $("#cotMota-" + id).text();
 
+
+        $("#tbTenSanPham").val(tenHang);
+        $("#tbSoLuong").val(soLuong);
+        $("#tbGiaTien").val(giaTien);
+        $("#tbMota").val(moTa);
+        $("#tbID").val(id);
+
+
+    });
 
 
 });
-
-
-
-});
-
 
 
 //function deleteAction(table, condition, id) {
