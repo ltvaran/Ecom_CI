@@ -12,15 +12,18 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+<!--    phải để link css va javascript vậy khi phân trang ko bị vỡ css-->
+    <link rel="stylesheet" href="<?php echo base_url("css/bootstrap.min.css"); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url("css/font-awesome.min.css"); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url("css/my_css.css"); ?>" />
 
-    <link rel="stylesheet" href="../../css/my_css.css">
 
-    <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../js/jquery.confirm.min.js"></script>
-    <script type="text/javascript" src="../../js/my_javascript.js"></script>
+    <script type="text/javascript" src="<?php echo base_url("js/jquery-2.1.4.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("js/bootstrap.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("js/my_javascript.js"); ?>"></script>
+
+
+
 
 
     <script>
@@ -205,7 +208,7 @@
             </tr>
 
         <?php }
-        echo $this->pagination->create_links();
+
         ?>
         </tbody>
     </table>
@@ -213,6 +216,7 @@
 
 </div>
 
+<?php  echo $this->pagination->create_links(); ?>
 
 </body>
 
